@@ -6,6 +6,9 @@ const Sidebar = () => {
       <h2 className="mb-8  font-bold uppercase md:text-xl text-stone-200">
         Your Projects
       </h2>
+      <button className="px-4 py-3 bg-stone-800 text-stone-400 rounded-md">
+        + Add Project
+      </button>
     </aside>
   );
 };
