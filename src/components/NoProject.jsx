@@ -2,7 +2,7 @@ import React from "react";
 import noProjectImage from "../assets/no-projects.png";
 import Button from "./Button";
 
-const NoProject = () => {
+const NoProject = ({ onAddProject }) => {
   return (
     <div className="w-2/3 mt-24 text-center">
       <img
@@ -16,7 +16,7 @@ const NoProject = () => {
       <p className="text-stone-400 mb-6">
         Select a project of get started with a new one
       </p>
-      <Button>Create new project</Button>
+      <Button onClick={onAddProject}>Create new project</Button>
     </div>
   );
 };
