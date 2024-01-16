@@ -15,12 +15,40 @@ function App() {
     });
   };
 
+  const handleSaveNewProject = (projectData) => {
+    const newProject = {
+      ...projectData,
+      id: Math.random(),
+    };
+
+    setProjectsState((prev) => {
+      return {
+        ...prev,
+        selectedProjectId: undefined,
+        projects: [...prev.projects, newProject],
+      };
+    });
+  };
+
+  const handleCancel = () => {
+    setProjectsState((prev) => {
+      return {
+        ...prev,
+        selectedProjectId: undefined,
+      };
+    });
+  };
+
   let content;
+
+  console.log(projectsState.projects);
 
   if (projectsState.selectedProjectId === undefined) {
     content = <NoProject onAddProject={handleAddProject} />;
   } else if (projectsState.selectedProjectId === null) {
-    content = <CreateProject />;
+    content = (
+      <CreateProject onSave={handleSaveNewProject} onCancel={handleCancel} />
+    );
   }
 
   return (
