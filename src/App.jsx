@@ -41,8 +41,6 @@ function App() {
 
   let content;
 
-  console.log(projectsState.projects);
-
   if (projectsState.selectedProjectId === undefined) {
     content = <NoProject onAddProject={handleAddProject} />;
   } else if (projectsState.selectedProjectId === null) {
@@ -53,7 +51,10 @@ function App() {
 
   return (
     <main className="h-screen my-8 flex gap-8">
-      <Sidebar onAddProject={handleAddProject} />
+      <Sidebar
+        onAddProject={handleAddProject}
+        projects={projectsState.projects}
+      />
       {content}
     </main>
   );
