@@ -15,7 +15,7 @@ function App() {
     });
   };
 
-  const handleSaveNewProject = (projectData) => {
+  const handleSaveAddProject = (projectData) => {
     const newProject = {
       ...projectData,
       id: Math.random(),
@@ -30,7 +30,7 @@ function App() {
     });
   };
 
-  const handleCancel = () => {
+  const handleCancelAddProject = () => {
     setProjectsState((prev) => {
       return {
         ...prev,
@@ -45,7 +45,10 @@ function App() {
     content = <NoProject onAddProject={handleAddProject} />;
   } else if (projectsState.selectedProjectId === null) {
     content = (
-      <CreateProject onSave={handleSaveNewProject} onCancel={handleCancel} />
+      <CreateProject
+        onSave={handleSaveAddProject}
+        onCancel={handleCancelAddProject}
+      />
     );
   }
 
