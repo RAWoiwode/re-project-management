@@ -8,6 +8,9 @@ const NewTask = ({ onAdd }) => {
   };
 
   const handleAddTask = () => {
+    if (enteredTask.trim() === "") {
+      return;
+    }
     onAdd(enteredTask);
     setEnteredTask("");
   };
